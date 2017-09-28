@@ -1,0 +1,9 @@
+.bk-video .slide-content {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.bk-video video {
+  width: 100%;
+}
