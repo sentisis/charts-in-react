@@ -38,8 +38,8 @@ class LineChart extends Component {
   renderChart() {
     const { data, onClickPoint, width, height, margin } = this.props;
 
-    const svg = select(this.containerEl);
     const formatTime = timeFormat("%e %B");
+    const svg = select(this.containerEl);
     const g = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     const div = select(this.tooltipEl)
@@ -47,18 +47,18 @@ class LineChart extends Component {
       .style('opacity', 0);
 
     const x = scaleTime()
-      .rangeRound([0, width - margin.left - margin.right]);
+      .rangeRound([0, width - margin.left - margin.right])
+      .domain(extent(data, d => d.date));
 
     const y = scaleLinear()
-      .rangeRound([height - margin.top - margin.bottom, 0]);
+      .rangeRound([height - margin.top - margin.bottom, 0])
+      .domain(extent(data, d => d.close));
 
     const line = drawLine()
       .x(d => x(d.date))
       .y(d => y(d.close));
 
 
-    x.domain(extent(data, d => d.date));
-    y.domain(extent(data, d => d.close));
 
     // Add the x axis
     g.append('g')

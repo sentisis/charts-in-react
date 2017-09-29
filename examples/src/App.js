@@ -48,11 +48,14 @@ class App extends React.Component {
       <Router>
         <div style={{ margin: '50px' }}>
           <ul>
-            <li><Link to="/example-1">Example 1</Link></li>
-            <li><Link to="/example-2">Example 2</Link></li>
+            <li><Link to="/d3">With D3</Link></li>
+            <li><Link to="/react-1">React - Basic</Link></li>
+            <li><Link to="/react-2">React - Points</Link></li>
+            <li><Link to="/react-3">React - Tooltips</Link></li>
+            <li><Link to="/react-4">React - Axis</Link></li>
           </ul>
 
-          <Route path="/example-1" render={() => (
+          <Route path="/d3" render={() => (
             <RefLineChart
               width={WIDTH}
               height={HEIGHT}
@@ -61,12 +64,42 @@ class App extends React.Component {
             />
           )} />
 
-          <Route path="/example-2" render={() => (
+          <Route path="/react-1" render={() => (
             <ReactLineChart
               width={WIDTH}
               height={HEIGHT}
               margin={MARGIN}
               data={data}
+            />
+          )} />
+          <Route path="/react-2" render={() => (
+            <ReactLineChart
+              width={WIDTH}
+              height={HEIGHT}
+              margin={MARGIN}
+              data={data}
+              points
+            />
+          )} />
+          <Route path="/react-3" render={() => (
+            <ReactLineChart
+              width={WIDTH}
+              height={HEIGHT}
+              margin={MARGIN}
+              data={data}
+              points
+              tooltip
+            />
+          )} />
+          <Route path="/react-4" render={() => (
+            <ReactLineChart
+              width={WIDTH}
+              height={HEIGHT}
+              margin={MARGIN}
+              data={data}
+              points
+              tooltip
+              axis
             />
           )} />
         </div>

@@ -1,0 +1,15 @@
+{
+  "name": "charts-in-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alberto Restifo <arestifo@sentisis.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "cleaver watch --style ./theme/style.css charts-in-react.md",
+    "build": "cleaver charts-in-react.md"
+  },
+  "dependencies": {
+    "cleaver": "^0.8.5",
+    "highlight.js": "^9.12.0"
+  }
+}

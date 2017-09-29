@@ -24,6 +24,11 @@ class LineChart extends Component {
     height: PropTypes.number.isRequired,
     margin: marginShape.isRequired,
 
+    // Feature flags
+    points: PropTypes.bool,
+    tooltip: PropTypes.bool,
+    axis: PropTypes.bool,
+
     data: PropTypes.arrayOf(dataShape),
   }
 
@@ -83,7 +88,7 @@ class LineChart extends Component {
   }
 
   render() {
-    const { width, height, margin } = this.props;
+    const { width, height, margin, points, axis, tooltip } = this.props;
     const { data, isTooltipVisible, tooltipData } = this.state;
 
     return (
@@ -94,7 +99,7 @@ class LineChart extends Component {
           position: 'relative',
         }}
       >
-        <Tooltip hidden={!isTooltipVisible} d={tooltipData} />
+        {tooltip && <Tooltip hidden={!isTooltipVisible} d={tooltipData} />}
 
         <svg
           width={width}
@@ -110,20 +115,18 @@ class LineChart extends Component {
               d={drawLine(data)}
             />
 
-            <g>
-              {data.map((d, i) => (
-                <Point
-                  key={i}
-                  d={d}
-                  onMouseEnter={this.handleMouseEnterPoint}
-                  onMouseLeave={this.handleMouseLeavePoint}
-                />
-              ))}
-            </g>
+            {points && data.map((d, i) => (
+              <Point
+                key={i}
+                d={d}
+                onMouseEnter={this.handleMouseEnterPoint}
+                onMouseLeave={this.handleMouseLeavePoint}
+              />
+            ))}
           </g>
         </svg>
-        <XAxis data={data} width={width} margin={margin} />
-        <YAxis data={data} height={height} margin={margin} />
+        {axis && <XAxis data={data} width={width} margin={margin} />}
+        {axis && <YAxis data={data} height={height} margin={margin} />}
       </div>
     );
   }
