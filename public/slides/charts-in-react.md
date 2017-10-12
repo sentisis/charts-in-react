@@ -210,14 +210,12 @@ g.selectAll('dot')
 
 --
 
-<video class="bk-video" autoplay muted loop>
-  <source src="videos/bored.mp4" type="video/mp4" />
-</video>
+# Understand what D3 does
+## Let's have a look
 
 --
 
-# Understand what D3 does
-## Let's have a look
+# The SVG
 
 -- code
 
@@ -249,6 +247,10 @@ const g = svg.append('g')
     );
   }
 ```
+
+--
+
+# The path
 
 -- code
 
@@ -292,21 +294,23 @@ returns this line generator. [...]
 -- code
 
 ```js
-const { data } = this.state;
+const { data } = this.props;
+
+const line = d3.line()
+  .x(d => x(d.date))
+  .y(d => y(d.close));
 
 return (
   <svg width={width} height={height}>
     <g transform={`translate(${margin.left}, ${margin.top})`}>
-
       <path
+        d={line(data)}
         fill="none"
         stroke="steelblue"
         strokeLinejoin="round"
         strokeLinecap="round"
         strokeWidth="2.5"
-        d={line(data)}
       />
-
     </g>
   </svg>
 );
@@ -341,10 +345,14 @@ componentWillMount() {
 ```diff
  const line = d3.line()
 -  .x(d => x(d.date))
-+  .x(d => d.x)
 -  .y(d => y(d.close));
++  .x(d => d.x)
 +  .y(d => d.y);
 ```
+
+--
+
+# The points
 
 -- code
 
@@ -378,14 +386,6 @@ g.selectAll('dot')
 -- code
 
 ```js
-const { data } = this.state;
-
-data.map((d, i) => <Point key={i} d={d} />)
-```
-
--- code
-
-```js
 const Point = ({ d }) => (
   <circle
     cx={d.x}
@@ -397,6 +397,29 @@ const Point = ({ d }) => (
   />
 );
 ```
+
+-- code
+
+```js
+const { data } = this.state;
+
+return (
+  <svg width={width} height={height}>
+    <g transform={`translate(${margin.left}, ${margin.top})`}>
+      <path d={line(data)} />
+
+      {data.map((d, i) => (
+        <Point key={i} d={d} />
+      ))}
+
+    </g>
+  </svg>
+);
+```
+
+--
+
+# The tooltip
 
 -- code
 
@@ -448,7 +471,7 @@ render() {
 
   return (
     <div
-    style={{
+      style={{
         width: `${width}px`,
         height: `${height}px`,
         position: 'relative',
@@ -486,3 +509,70 @@ data.map((d, i) => (
   />
 ))}
 ```
+
+--
+
+# The axis
+
+-- code
+
+```js
+// x axis
+g.append('g')
+  .attr('transform', `translate(0, ${height - margin.top - margin.bottom})`)
+  .call(axisBottom(x))
+  .select('.domain')
+  .remove();
+
+// y axis
+g.append('g')
+  .call(axisLeft(y))
+  .append('text')
+  .attr('fill', '#000')
+  .attr('transform', 'rotate(-90)')
+  .attr('y', 6)
+  .attr('dy', '0.71em')
+  .attr('text-anchor', 'end')
+  .text('Price ($)');
+```
+
+-- code
+
+```js
+const { width, height, margin } = this.props;
+const { data } = this.state;
+
+return (
+  <div
+    style={{
+      width: `${width}px`,
+      height: `${height}px`,
+      position: 'relative',
+    }}
+  >
+    {/* Tooltip and chart omitted */}
+
+    <XAxis data={data} width={width} margin={margin} />
+    <YAxis data={data} height={height} margin={margin} />
+  </div>
+);
+```
+
+-- doc
+
+# d3.extend(_array[, accessor]_)
+
+Returns the minimum and maximum value in the given array using natural order.
+
+# d3.ticks(_start, stop, count_)
+
+Returns an array of approximately count + 1 uniformly-spaced, nicely-rounded values between start and stop (inclusive).
+
+-- code
+
+```js
+const [min, max] = extent(data, d => d.date);
+
+const values = ticks(min, max, 5);
+```
+

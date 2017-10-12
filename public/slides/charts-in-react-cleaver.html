@@ -694,6 +694,7 @@ http://zenorocha.mit-license.org
 }
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -889,13 +890,12 @@ http://zenorocha.mit-license.org
 </section>
   </div>
   <div class="slide hidden" id="slide-21">
-    <section class="slide-content"><video class="bk-video" autoplay muted loop>
-  <source src="videos/bored.mp4" type="video/mp4" />
-</video></section>
-  </div>
-  <div class="slide hidden" id="slide-22">
     <section class="slide-content"><h1 id="understand-what-d3-does">Understand what D3 does</h1>
 <h2 id="let-s-have-a-look">Let&#39;s have a look</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-22">
+    <section class="slide-content"><h1 id="the-svg">The SVG</h1>
 </section>
   </div>
   <div class="slide hidden  code" id="slide-23">
@@ -923,7 +923,11 @@ http://zenorocha.mit-license.org
   }</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-26">
+  <div class="slide hidden" id="slide-26">
+    <section class="slide-content"><h1 id="the-path">The path</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-27">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// Create the drawing function</span>
 <span class="hljs-keyword">const</span> line = d3.line()
   .x(d =&gt; x(d.date))
@@ -940,7 +944,7 @@ g.append(<span class="hljs-string">'path'</span>)
   .attr(<span class="hljs-string">'d'</span>, line);</code></pre>
 </section>
   </div>
-  <div class="slide hidden  doc" id="slide-27">
+  <div class="slide hidden  doc" id="slide-28">
     <section class="slide-content"><h1 id="d3-line-">d3.line()</h1>
 <p>Constructs a new line generator with the default settings.</p>
 <h1 id="_line_-data-"><em>line</em>(data)</h1>
@@ -953,28 +957,30 @@ returns this line generator. [...]</p>
 returns this line generator. [...]</p>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-28">
-    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.state;
+  <div class="slide hidden  code" id="slide-29">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.props;
+
+<span class="hljs-keyword">const</span> line = d3.line()
+  .x(d =&gt; x(d.date))
+  .y(d =&gt; y(d.close));
 
 <span class="hljs-keyword">return</span> (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">{width}</span> <span class="hljs-attr">height</span>=<span class="hljs-string">{height}</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">{`translate(${margin.left},</span> ${<span class="hljs-attr">margin.top</span>})`}&gt;</span>
-
       <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+        <span class="hljs-attr">d</span>=<span class="hljs-string">{line(data)}</span>
         <span class="hljs-attr">fill</span>=<span class="hljs-string">"none"</span>
         <span class="hljs-attr">stroke</span>=<span class="hljs-string">"steelblue"</span>
         <span class="hljs-attr">strokeLinejoin</span>=<span class="hljs-string">"round"</span>
         <span class="hljs-attr">strokeLinecap</span>=<span class="hljs-string">"round"</span>
         <span class="hljs-attr">strokeWidth</span>=<span class="hljs-string">"2.5"</span>
-        <span class="hljs-attr">d</span>=<span class="hljs-string">{line(data)}</span>
       /&gt;</span>
-
     <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
 )</span>;</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-29">
+  <div class="slide hidden  code" id="slide-30">
     <section class="slide-content"><pre><code class="lang-js">componentWillMount() {
   <span class="hljs-keyword">const</span> { width, height, margin, data } = <span class="hljs-keyword">this</span>.props;
 
@@ -996,15 +1002,19 @@ returns this line generator. [...]</p>
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-30">
+  <div class="slide hidden  code" id="slide-31">
     <section class="slide-content"><pre><code class="lang-diff"> const line = d3.line()
 <span class="hljs-deletion">-  .x(d =&gt; x(d.date))</span>
-<span class="hljs-addition">+  .x(d =&gt; d.x)</span>
 <span class="hljs-deletion">-  .y(d =&gt; y(d.close));</span>
+<span class="hljs-addition">+  .x(d =&gt; d.x)</span>
 <span class="hljs-addition">+  .y(d =&gt; d.y);</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-31">
+  <div class="slide hidden" id="slide-32">
+    <section class="slide-content"><h1 id="the-points">The points</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-33">
     <section class="slide-content"><pre><code class="lang-js">g.selectAll(<span class="hljs-string">'dot'</span>)
   .data(data)
   .enter().append(<span class="hljs-string">'circle'</span>)
@@ -1016,7 +1026,7 @@ returns this line generator. [...]</p>
     .attr(<span class="hljs-string">'stroke-width'</span>, <span class="hljs-number">2.5</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-32">
+  <div class="slide hidden  code" id="slide-34">
     <section class="slide-content"><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"960"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"500"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"translate(35, 20)"</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- &lt;path&gt; omitted --&gt;</span>
@@ -1029,13 +1039,7 @@ returns this line generator. [...]</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-33">
-    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.state;
-
-data.map((d, i) =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Point</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span> <span class="hljs-attr">d</span>=<span class="hljs-string">{d}</span> /&gt;</span>)</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden  code" id="slide-34">
+  <div class="slide hidden  code" id="slide-35">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> Point = ({ d }) =&gt; (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
     <span class="hljs-attr">cx</span>=<span class="hljs-string">{d.x}</span>
@@ -1048,7 +1052,28 @@ data.map((d, i) =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="
 )</span>;</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-35">
+  <div class="slide hidden  code" id="slide-36">
+    <section class="slide-content"><pre><code class="lang-js">const { data } = this.state;
+
+return (
+  &lt;svg width={width} height={height}&gt;
+    &lt;g transform={`translate(${margin.left}, ${margin.top})`}&gt;
+      &lt;path d={line(data)} /&gt;
+
+      {data.map((d, i) =&gt; (
+        &lt;Point key={i} d={d} /&gt;
+      ))}
+
+    &lt;/g&gt;
+  &lt;/svg&gt;
+);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-37">
+    <section class="slide-content"><h1 id="the-tooltip">The tooltip</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-38">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> div = d3.select(<span class="hljs-keyword">this</span>.tooltipEl)
   .style(<span class="hljs-string">'opacity'</span>, <span class="hljs-number">0</span>);
 
@@ -1070,7 +1095,7 @@ g.selectAll(<span class="hljs-string">'dot'</span>)
     });</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-36">
+  <div class="slide hidden  code" id="slide-39">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> formatTime = timeFormat(<span class="hljs-string">"%e %B"</span>);
 
 <span class="hljs-keyword">const</span> Tooltip = ({ hidden, d }) =&gt; (
@@ -1086,13 +1111,13 @@ g.selectAll(<span class="hljs-string">'dot'</span>)
 )</span>;</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-37">
+  <div class="slide hidden  code" id="slide-40">
     <section class="slide-content"><pre><code class="lang-js">render() {
   <span class="hljs-keyword">const</span> { isTooltipVisible, tooltipDate } = <span class="hljs-keyword">this</span>.state;
 
   <span class="hljs-keyword">return</span> (
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
         <span class="hljs-attr">width:</span> `${<span class="hljs-attr">width</span>}<span class="hljs-attr">px</span>`,
         <span class="hljs-attr">height:</span> `${<span class="hljs-attr">height</span>}<span class="hljs-attr">px</span>`,
         <span class="hljs-attr">position:</span> '<span class="hljs-attr">relative</span>',
@@ -1108,7 +1133,7 @@ g.selectAll(<span class="hljs-string">'dot'</span>)
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-38">
+  <div class="slide hidden  code" id="slide-41">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// Point</span>
 <span class="hljs-keyword">const</span> Point = ({ d, onMouseEnter, onMouseLeave }) =&gt; (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
@@ -1129,7 +1154,64 @@ data.map((d, i) =&gt; (
 )</span>)}</code></pre>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-39">
+  <div class="slide hidden" id="slide-42">
+    <section class="slide-content"><h1 id="the-axis">The axis</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-43">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// x axis</span>
+g.append(<span class="hljs-string">'g'</span>)
+  .attr(<span class="hljs-string">'transform'</span>, <span class="hljs-string">`translate(0, <span class="hljs-subst">${height - margin.top - margin.bottom}</span>)`</span>)
+  .call(axisBottom(x))
+  .select(<span class="hljs-string">'.domain'</span>)
+  .remove();
+
+<span class="hljs-comment">// y axis</span>
+g.append(<span class="hljs-string">'g'</span>)
+  .call(axisLeft(y))
+  .append(<span class="hljs-string">'text'</span>)
+  .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'#000'</span>)
+  .attr(<span class="hljs-string">'transform'</span>, <span class="hljs-string">'rotate(-90)'</span>)
+  .attr(<span class="hljs-string">'y'</span>, <span class="hljs-number">6</span>)
+  .attr(<span class="hljs-string">'dy'</span>, <span class="hljs-string">'0.71em'</span>)
+  .attr(<span class="hljs-string">'text-anchor'</span>, <span class="hljs-string">'end'</span>)
+  .text(<span class="hljs-string">'Price ($)'</span>);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-44">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { width, height, margin } = <span class="hljs-keyword">this</span>.props;
+<span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.state;
+
+<span class="hljs-keyword">return</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">width:</span> `${<span class="hljs-attr">width</span>}<span class="hljs-attr">px</span>`,
+      <span class="hljs-attr">height:</span> `${<span class="hljs-attr">height</span>}<span class="hljs-attr">px</span>`,
+      <span class="hljs-attr">position:</span> '<span class="hljs-attr">relative</span>',
+    }}
+  &gt;</span>
+    {/* Tooltip and chart omitted */}
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">XAxis</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">width</span>=<span class="hljs-string">{width}</span> <span class="hljs-attr">margin</span>=<span class="hljs-string">{margin}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">YAxis</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">height</span>=<span class="hljs-string">{height}</span> <span class="hljs-attr">margin</span>=<span class="hljs-string">{margin}</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+)</span>;</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  doc" id="slide-45">
+    <section class="slide-content"><h1 id="d3-extend-_array-accessor-_-">d3.extend(<em>array[, accessor]</em>)</h1>
+<p>Returns the minimum and maximum value in the given array using natural order.</p>
+<h1 id="d3-ticks-_start-stop-count_-">d3.ticks(<em>start, stop, count</em>)</h1>
+<p>Returns an array of approximately count + 1 uniformly-spaced, nicely-rounded values between start and stop (inclusive).</p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-46">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> [min, max] = extent(data, d =&gt; d.date);
+
+<span class="hljs-keyword">const</span> values = ticks(min, max, <span class="hljs-number">5</span>);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-47">
     <section class="slide-content"><div class="author">
   <h1 class="name">Alberto Restifo</h1>
     <h3 class="twitter">
