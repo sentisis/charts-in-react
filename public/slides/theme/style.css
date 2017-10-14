@@ -295,7 +295,7 @@ http://zenorocha.mit-license.org
 }
 
 
-.slide.code {
+.slide.code, .slide.vim-code {
   background: #282a36;
 }
 
@@ -340,3 +340,33 @@ http://zenorocha.mit-license.org
   margin-bottom: 3vh;
   max-width: 60ch;
 }
+
+.vim-code code {
+}
+
+#vimCodeElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+#vimCodeElement .LineNr {
+  opacity: 0;
+}
+
+#vimCodeElement .Include { color: #8be9fd; }
+#vimCodeElement .Identifier { color: #8be9fd; }
+#vimCodeElement .Function { color: #8be9fd; }
+#vimCodeElement .String { color: #f1fa8c; }
+
+#vimCodeElement .jsReturn,
+#vimCodeElement .jsOperator,
+#vimCodeElement .StorageClass { color: #ff79c6; }
+
+#vimCodeElement .Type { color: #8be9fd; }
+
+#vimCodeElement .jsFuncCall { color: #50fa7b; }
+

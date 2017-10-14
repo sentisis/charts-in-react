@@ -10,6 +10,7 @@ import { timeParse } from 'd3-time-format';
 
 import ReactLineChart from './ReactLineChart';
 import RefLineChart from './RefLineChart';
+import AnimatedChart from './animations/LineChart';
 
 import dataSrc from './data.csv';
 
@@ -53,6 +54,7 @@ class App extends React.Component {
             <li><Link to="/react-2">React - Points</Link></li>
             <li><Link to="/react-3">React - Tooltips</Link></li>
             <li><Link to="/react-4">React - Axis</Link></li>
+            <li><Link to="/animated">React - Animated</Link></li>
           </ul>
 
           <Route path="/d3" render={() => (
@@ -100,6 +102,14 @@ class App extends React.Component {
               points
               tooltip
               axis
+            />
+          )} />
+          <Route path="/animated" render={() => (
+            <AnimatedChart
+              width={WIDTH}
+              height={HEIGHT}
+              margin={MARGIN}
+              data={data}
             />
           )} />
         </div>
