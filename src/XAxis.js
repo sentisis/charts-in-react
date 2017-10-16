@@ -31,7 +31,7 @@ const XAsix = ({ data, width, margin }) => {
             left: `${x(date)}px`,
           }}
         >
-          {formatDate(date, 'MMM D')}
+          {formatDate(date, 'D MMM')}
         </span>
       ) : null )}
     </div>

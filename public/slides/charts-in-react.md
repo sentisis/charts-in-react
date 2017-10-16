@@ -22,28 +22,29 @@ theme: ./theme
 #  This year I made many charts
 ## Responsive, interactive and animated
 
--- chart-videos
+-- chart-video
 
-<div id="area-1">
-  <video class="video-height" autoplay muted loop>
-    <source src="videos/line-chart.mp4" type="video/mp4" />
-  </video>
-</div>
-<div id="area-2">
-  <video class="video-height" autoplay muted loop>
-    <source src="videos/bar-chart.mp4" type="video/mp4" />
-  </video>
-</div>
-<div id="area-3">
-  <video class="video-width" autoplay muted loop>
-    <source src="videos/analyze.mp4" type="video/mp4" />
-  </video>
-</div>
-<div id="area-4">
-  <video class="video-width" autoplay muted loop>
-    <source src="videos/bubble-chart.mp4" type="video/mp4" />
-  </video>
-</div>
+<video autoplay muted loop>
+  <source src="videos/line-chart.mp4" type="video/mp4" />
+</video>
+
+-- chart-video
+
+<video autoplay muted loop>
+  <source src="videos/bar-chart.mp4" type="video/mp4" />
+</video>
+
+-- chart-video
+
+<video autoplay muted loop>
+  <source src="videos/analyze.mp4" type="video/mp4" />
+</video>
+
+-- chart-video
+
+<video autoplay muted loop>
+  <source src="videos/bubble-chart.mp4" type="video/mp4" />
+</video>
 
 -- flex-start light
 
@@ -58,8 +59,7 @@ theme: ./theme
 --
 
 # Using ref
-
-It's the most common solution you'll see around the web
+## And writing plain D3 code
 
 -- code
 
@@ -210,8 +210,13 @@ g.selectAll('dot')
 
 --
 
-# Understand what D3 does
-## Let's have a look
+<iframe 
+  src="/" 
+  width="100%" 
+  height="100%" 
+  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: white;" 
+  frameborder="0"
+></iframe>
 
 --
 
@@ -223,16 +228,6 @@ g.selectAll('dot')
 const svg = d3.select(this.containerEl);
 const g = svg.append('g')
   .attr('transform', `translate(${margin.left}, ${margin.top})`);
-```
-
--- code
-
-```html
-<svg width="960" height="500">
-  <g transform="translate(35, 20)">
-    <!-- Omitted -->
-  </g>
-</svg>
 ```
 
 -- code
@@ -370,21 +365,6 @@ g.selectAll('dot')
 
 -- code
 
-```html
-<svg width="960" height="500">
-  <g transform="translate(35, 20)">
-    <!-- <path> omitted -->
-
-    <circle r="4" cx="905" cy="457" fill="white" stroke="steelblue" stroke-width="2.5"></circle>
-    <circle r="4" cx="880" cy="460" fill="white" stroke="steelblue" stroke-width="2.5"></circle>
-    <circle r="4" cx="804" cy="450" fill="white" stroke="steelblue" stroke-width="2.5"></circle>
-    <!-- ...and so on -->
-  </g>
-</svg>
-```
-
--- code
-
 ```js
 const Point = ({ d }) => (
   <circle
@@ -448,7 +428,7 @@ g.selectAll('dot')
 -- code
 
 ```js
-const formatTime = timeFormat("%e %B");
+import format from 'date-fns/format';
 
 const Tooltip = ({ hidden, d }) => (
   <div
@@ -457,8 +437,8 @@ const Tooltip = ({ hidden, d }) => (
       transform: `translate(${d.x}px, ${d.y - 35}px)`,
     }}
   >
-    <span className="date">{formatTime(d.date)}</span>
-    <span className="value">{d.close}</span>
+    <span className="date">{format(d.date, 'MMM D')}</span>
+    <span className="value">{d.value}</span>
   </div>
 );
 ```
@@ -487,6 +467,10 @@ render() {
 }
 ```
 
+--
+
+<img src="./images/axes.png" />
+
 -- code
 
 ```js
@@ -514,53 +498,9 @@ data.map((d, i) => (
 
 # The axis
 
--- code
-
-```js
-// x axis
-g.append('g')
-  .attr('transform', `translate(0, ${height - margin.top - margin.bottom})`)
-  .call(axisBottom(x))
-  .select('.domain')
-  .remove();
-
-// y axis
-g.append('g')
-  .call(axisLeft(y))
-  .append('text')
-  .attr('fill', '#000')
-  .attr('transform', 'rotate(-90)')
-  .attr('y', 6)
-  .attr('dy', '0.71em')
-  .attr('text-anchor', 'end')
-  .text('Price ($)');
-```
-
--- code
-
-```js
-const { width, height, margin } = this.props;
-const { data } = this.state;
-
-return (
-  <div
-    style={{
-      width: `${width}px`,
-      height: `${height}px`,
-      position: 'relative',
-    }}
-  >
-    {/* Tooltip and chart omitted */}
-
-    <XAxis data={data} width={width} margin={margin} />
-    <YAxis data={data} height={height} margin={margin} />
-  </div>
-);
-```
-
 -- doc
 
-# d3.extend(_array[, accessor]_)
+# d3.extent(_array[, accessor]_)
 
 Returns the minimum and maximum value in the given array using natural order.
 
@@ -584,52 +524,201 @@ const values = ticks(min, max, 5);
 <span id="L2" class="LineNr"> 2 </span>
 <span id="L3" class="LineNr"> 3 </span><span class="Include">import</span> { scaleLinear } <span class="Include">from</span> <span class="String">'d3-scale'</span>;
 <span id="L4" class="LineNr"> 4 </span><span class="Include">import</span> { ticks, extent } <span class="Include">from</span> <span class="String">'d3-array'</span>;
-<span id="L5" class="LineNr"> 5 </span><span class="Include">import</span> { timeFormat } <span class="Include">from</span> <span class="String">'d3-time-format'</span>;
-<span id="L6" class="LineNr"> 6 </span>
-<span id="L7" class="LineNr"> 7 </span><span class="StorageClass">const</span> formatTime <span class="jsOperator">=</span> <span class="jsFuncCall">timeFormat</span>(<span class="String">'%e %B'</span>);
-<span id="L8" class="LineNr"> 8 </span>
-<span id="L9" class="LineNr"> 9 </span><span class="StorageClass">const</span> XAsix <span class="jsOperator">=</span> ({ data, width, margin }) <span class="Type">=&gt;</span> {
-<span id="L10" class="LineNr">10 </span>  <span class="StorageClass">const</span> [min, max] <span class="jsOperator">=</span> <span class="jsFuncCall">extent</span>(data, d <span class="Type">=&gt;</span> d.date);
-<span id="L11" class="LineNr">11 </span>  <span class="StorageClass">const</span> values <span class="jsOperator">=</span> <span class="jsFuncCall">ticks</span>(min, max, <span class="Number">5</span>);
-<span id="L12" class="LineNr">12 </span>
-<span id="L13" class="LineNr">13 </span>  <span class="StorageClass">const</span> x <span class="jsOperator">=</span> <span class="jsFuncCall">scaleLinear</span>()
-<span id="L14" class="LineNr">14 </span>    .<span class="jsFuncCall">range</span>([<span class="Number">0</span>, width <span class="jsOperator">-</span> margin.left <span class="jsOperator">-</span> margin.right])
-<span id="L15" class="LineNr">15 </span>    .<span class="jsFuncCall">domain</span>([min, max]);
-<span id="L16" class="LineNr">16 </span>
-<span id="L17" class="LineNr">17 </span>  <span class="jsReturn">return</span> (
-<span id="L18" class="LineNr">18 </span>    <span class="Function">&lt;</span><span class="Function">div</span>
-<span id="L19" class="LineNr">19 </span><span class="Function">      </span><span class="Type">style</span>={{
-<span id="L20" class="LineNr">20 </span>        position: <span class="String">'absolute'</span>,
-<span id="L21" class="LineNr">21 </span>        pointerEvents: <span class="String">'none'</span>,
-<span id="L22" class="LineNr">22 </span>        left: <span class="Number">0</span> <span class="jsOperator">+</span> margin.left,
-<span id="L23" class="LineNr">23 </span>        right: <span class="Number">0</span> <span class="jsOperator">+</span> margin.right,
-<span id="L24" class="LineNr">24 </span>        bottom: <span class="Number">0</span>,
-<span id="L25" class="LineNr">25 </span>      }}
-<span id="L26" class="LineNr">26 </span><span class="Function">    &gt;</span>
-<span id="L27" class="LineNr">27 </span>      {values.<span class="jsFuncCall">map</span>((v, i) <span class="Type">=&gt;</span> (
-<span id="L28" class="LineNr">28 </span>        <span class="Function">&lt;</span><span class="Function">span</span>
-<span id="L29" class="LineNr">29 </span><span class="Function">          </span><span class="Type">key</span>={i}
-<span id="L30" class="LineNr">30 </span><span class="Function">          </span><span class="Type">style</span>={{
-<span id="L31" class="LineNr">31 </span>            fontSize: <span class="String">'12px'</span>,
-<span id="L32" class="LineNr">32 </span>            position: <span class="String">'absolute'</span>,
-<span id="L33" class="LineNr">33 </span>            top: <span class="Number">0</span>,
-<span id="L34" class="LineNr">34 </span>            left: <span class="String">\`${x(v)}px\`</span>,
-<span id="L35" class="LineNr">35 </span>            transform: <span class="String">'translate(-50%)'</span>,
-<span id="L36" class="LineNr">36 </span>          }}
-<span id="L37" class="LineNr">37 </span><span class="Function">        &gt;</span>
-<span id="L38" class="LineNr">38 </span>          {<span class="jsFuncCall">formatTime</span>(v)}
-<span id="L39" class="LineNr">39 </span>        <span class="Identifier">&lt;/span&gt;</span>
-<span id="L40" class="LineNr">40 </span>      ))}
-<span id="L41" class="LineNr">41 </span>    <span class="Identifier">&lt;/div&gt;</span>
-<span id="L42" class="LineNr">42 </span>  );
-<span id="L43" class="LineNr">43 </span>}
-<span id="L44" class="LineNr">44 </span>
-<span id="L45" class="LineNr">45 </span><span class="Include">export</span> <span class="StorageClass">default</span> XAsix;
+<span id="L5" class="LineNr"> 5 </span>
+<span id="L6" class="LineNr"> 6 </span><span class="StorageClass">const</span> YAsix <span class="jsOperator">=</span> ({ data, height, margin }) <span class="Type">=&gt;</span> {
+<span id="L7" class="LineNr"> 7 </span>  <span class="StorageClass">const</span> [min, max] <span class="jsOperator">=</span> <span class="jsFuncCall">extent</span>(data, d <span class="Type">=&gt;</span> d.value);
+<span id="L8" class="LineNr"> 8 </span>  <span class="StorageClass">const</span> values <span class="jsOperator">=</span> <span class="jsFuncCall">ticks</span>(<span class="Number">0</span>, <span class="Number">100</span>, <span class="Number">5</span>);
+<span id="L9" class="LineNr"> 9 </span>
+<span id="L10" class="LineNr">10 </span>  <span class="StorageClass">const</span> y <span class="jsOperator">=</span> <span class="jsFuncCall">scaleLinear</span>()
+<span id="L11" class="LineNr">11 </span>    .<span class="jsFuncCall">range</span>([<span class="Number">0</span>, height <span class="jsOperator">-</span> margin.top <span class="jsOperator">-</span> margin.bottom])
+<span id="L12" class="LineNr">12 </span>    .<span class="jsFuncCall">domain</span>([max, min]);
+<span id="L13" class="LineNr">13 </span>
+<span id="L14" class="LineNr">14 </span>  <span class="jsReturn">return</span> (
+<span id="L15" class="LineNr">15 </span>    <span class="Function">&lt;</span><span class="Function">div</span>
+<span id="L16" class="LineNr">16 </span><span class="Function">      </span><span class="Type">style</span>={{
+<span id="L17" class="LineNr">17 </span>        width: <span class="String">'25px'</span>,
+<span id="L18" class="LineNr">18 </span>        position: <span class="String">'absolute'</span>,
+<span id="L19" class="LineNr">19 </span>        pointerEvents: <span class="String">'none'</span>,
+<span id="L20" class="LineNr">20 </span>        top: <span class="Number">0</span> <span class="jsOperator">+</span> margin.top,
+<span id="L21" class="LineNr">21 </span>        left: <span class="Number">0</span>,
+<span id="L22" class="LineNr">22 </span>        bottom: <span class="Number">0</span> <span class="jsOperator">+</span> margin.bottom,
+<span id="L23" class="LineNr">23 </span>      }}
+<span id="L24" class="LineNr">24 </span><span class="Function">    &gt;</span>
+<span id="L25" class="LineNr">25 </span>      {values.<span class="jsFuncCall">map</span>((v, i) <span class="Type">=&gt;</span> (
+<span id="L26" class="LineNr">26 </span>        <span class="Function">&lt;</span><span class="Function">span</span>
+<span id="L27" class="LineNr">27 </span><span class="Function">          </span><span class="Type">key</span>={i}
+<span id="L28" class="LineNr">28 </span><span class="Function">          </span><span class="Type">style</span>={{
+<span id="L29" class="LineNr">29 </span>            lineHeight: <span class="Number">0</span>,
+<span id="L30" class="LineNr">30 </span>            fontSize: <span class="String">'12px'</span>,
+<span id="L31" class="LineNr">31 </span>            position: <span class="String">'absolute'</span>,
+<span id="L32" class="LineNr">32 </span>            right: <span class="Number">0</span>,
+<span id="L33" class="LineNr">33 </span>            top: <span class="String">\`</span>${<span class="jsFuncCall">y</span>(v)}<span class="String">px\`</span>,
+<span id="L34" class="LineNr">34 </span>          }}
+<span id="L35" class="LineNr">35 </span><span class="Function">        &gt;</span>
+<span id="L36" class="LineNr">36 </span>          {v}
+<span id="L37" class="LineNr">37 </span>        <span class="Identifier">&lt;/span&gt;</span>
+<span id="L38" class="LineNr">38 </span>      ))}
+<span id="L39" class="LineNr">39 </span>    <span class="Identifier">&lt;/div&gt;</span>
+<span id="L40" class="LineNr">40 </span>  );
+<span id="L41" class="LineNr">41 </span>}
+<span id="L42" class="LineNr">42 </span>
+<span id="L43" class="LineNr">43 </span><span class="Include">export</span> <span class="StorageClass">default</span> YAsix;
 </pre>
 </code>
+
+-- code
+
+```js
+const { width, height, margin } = this.props;
+const { data } = this.state;
+
+return (
+  <div
+    style={{
+      width: `${width}px`,
+      height: `${height}px`,
+      position: 'relative',
+    }}
+  >
+    {/* Tooltip and chart omitted */}
+
+    <XAxis data={data} width={width} margin={margin} />
+    <YAxis data={data} height={height} margin={margin} />
+  </div>
+);
+```
 
 --
 
 # That's it!
+## What did we earn?
 
 --
+
+# Server rendering
+## We're not relying on the DOM anymore
+
+--
+
+# Modularity
+## It's all react components
+
+--
+
+# Extendibility
+## You're in full control
+
+--
+
+# Performances
+## React Fiber is really fast
+
+--
+
+# React ❤️
+## It just works™
+
+--
+
+# Animations
+## Let's make it beautiful
+
+--
+
+<video class="bk-video" autoplay muted loop>
+  <source src="https://media.giphy.com/media/3o7TKyPpWvFrpwua2I/giphy.mp4" type="video/mp4" />
+</video>
+
+--
+
+# CSS Transforms
+## When we can keep things simple
+
+-- code
+
+```js
+const Tooltip = ({ hidden, d }) => (
+  <div
+    style={{
+      opacity: hidden ? 0 : 1,
+      transition: 'opacity 250ms ease-in-out',
+      transform: `translate(${d.x}px, ${d.y - 35}px)`,
+    }}
+  >
+    <span className="date">{formatDate(d.date, 'D MMM YYYY')}</span>
+    <span className="value">{d.value}</span>
+  </div>
+);
+```
+
+--
+
+# D3 timing functions
+## For complex animations
+
+-- doc
+
+# d3.timer(_callback[, delay[, time]_)
+
+Schedules a new timer, invoking the specified callback repeatedly until the timer is stopped.
+
+
+# _timer_.stop()
+
+Stops this timer, preventing subsequent callbacks
+
+-- code
+
+```js
+const duration = 500;
+
+const t = timer((elapsed) => {
+
+  // Do somehting
+
+  if (elapsed > duration) return t.stop();
+
+}, 100);
+```
+
+-- doc
+
+# _ease_(_t_)
+
+Given the specified normalized time t, typically in the range [0,1], returns the “eased” time _t_, also typically in [0,1]
+
+# d3.easeCubicIn(_t_)
+
+<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicIn.png" />
+
+# d3.easeElastic(_t[, amptitude[, period_)
+
+<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/elasticOut.png" />
+
+-- doc
+
+# d3.interpolateNumber(_a, b_)
+
+Returns an interpolator between the two numbers a and b.
+
+-- code
+
+```js
+const duration = 1000;
+
+const timeScale = scaleLinear()
+  .domain([0, duration])
+  .clamp(true);
+
+const i = interpolateNumber(0, 4);
+
+const t = timer((elapsed) => {
+  const te = easeElasticOut(timeScale(elapsed), 4, 0.5)
+
+  const radius = i(te);
+  this.setState({ radius });
+
+  if (elapsed > duration) return t.stop();
+});
+```
+

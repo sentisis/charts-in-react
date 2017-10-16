@@ -245,55 +245,9 @@ http://zenorocha.mit-license.org
   background-color: #f2f3f7;
 }
 
-.slide.chart-videos .slide-content {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
-  grid-gap: 0 0;
+.chart-video video {
+  width: 90%;
 }
-
-.video-width {
-  width: 100%;
-}
-
-.video-height {
-  height: 100%;
-}
-
-#area-1 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  text-align: center;
-}
-
-#area-2 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  text-align: center;
-}
-
-#area-3 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
-#area-4 {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
 
 .slide.code, .slide.vim-code {
   background: #282a36;
