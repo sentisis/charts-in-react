@@ -4,8 +4,8 @@ import { scaleLinear } from 'd3-scale';
 import { ticks, extent } from 'd3-array';
 
 const YAsix = ({ data, height, margin }) => {
-  const [min, max] = extent(data, d => d.close);
-  const values = ticks(min, max, 10);
+  const [min, max] = extent(data, d => d.value);
+  const values = ticks(0, 100, 5);
 
   const y = scaleLinear()
     .range([0, height - margin.top - margin.bottom])

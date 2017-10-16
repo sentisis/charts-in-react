@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export const dataShape = PropTypes.shape({
   date: PropTypes.instanceOf(Date).isRequired,
-  close: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
 });
 
 export const marginShape = PropTypes.shape({

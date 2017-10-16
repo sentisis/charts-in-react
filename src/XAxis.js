@@ -1,14 +1,11 @@
 import React from 'react';
 
+import formatDate from 'date-fns/format';
 import { scaleLinear } from 'd3-scale';
-import { ticks, extent } from 'd3-array';
-import { timeFormat } from 'd3-time-format';
-
-const formatTime = timeFormat('%e %B');
+import { extent } from 'd3-array';
 
 const XAsix = ({ data, width, margin }) => {
   const [min, max] = extent(data, d => d.date);
-  const values = ticks(min, max, 5);
 
   const x = scaleLinear()
     .range([0, width - margin.left - margin.right])
@@ -24,20 +21,19 @@ const XAsix = ({ data, width, margin }) => {
         bottom: 0,
       }}
     >
-      {values.map((v, i) => (
+      {data.map(({ date }, i) => i % 2 ? (
         <span
           key={i}
+          className="x-label"
           style={{
-            fontSize: '12px',
             position: 'absolute',
             top: 0,
-            left: `${x(v)}px`,
-            transform: 'translate(-50%)',
+            left: `${x(date)}px`,
           }}
         >
-          {formatTime(v)}
+          {formatDate(date, 'MMM D')}
         </span>
-      ))}
+      ) : null )}
     </div>
   );
 }
