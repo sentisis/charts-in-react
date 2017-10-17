@@ -217,6 +217,29 @@ http://zenorocha.mit-license.org
 
 /* }}} */
 
+.package-name {
+  position: absolute;
+  top: 5vh;
+  font-family: 'Overpass Mono', monospace;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.package-name::before {
+  display: block;
+  content: "Package:";
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vh;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  opacity: .7;
+}
+
+.progress-bar {
+  background-color: gold;
+}
+
 .bk-video .slide-content {
   align-items: center;
 }
@@ -250,61 +273,19 @@ http://zenorocha.mit-license.org
   height: 8vh;
 }
 
+.slide.bk-white {
+  background-color: white;
+}
+
 .slide.chart-video {
   background-color: #f2f3f7;
 }
 
-.slide.chart-videos .slide-content {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
-  grid-gap: 0 0;
+.chart-video video {
+  width: 90%;
 }
 
-.video-width {
-  width: 100%;
-}
-
-.video-height {
-  height: 100%;
-}
-
-#area-1 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  text-align: center;
-}
-
-#area-2 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  text-align: center;
-}
-
-#area-3 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
-#area-4 {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
-
-.slide.code {
+.slide.code, .slide.vim-code {
   background: #282a36;
 }
 
@@ -349,6 +330,36 @@ http://zenorocha.mit-license.org
   margin-bottom: 3vh;
   max-width: 60ch;
 }
+
+.vim-code code {
+}
+
+#vimCodeElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+#vimCodeElement .LineNr {
+  opacity: 0;
+}
+
+#vimCodeElement .Include { color: #8be9fd; }
+#vimCodeElement .Identifier { color: #8be9fd; }
+#vimCodeElement .Function { color: #8be9fd; }
+#vimCodeElement .String { color: #f1fa8c; }
+
+#vimCodeElement .jsReturn,
+#vimCodeElement .jsOperator,
+#vimCodeElement .StorageClass { color: #ff79c6; }
+
+#vimCodeElement .Type { color: #8be9fd; }
+
+#vimCodeElement .jsFuncCall { color: #50fa7b; }
+
 
 /* Basics {{{ */
 
@@ -560,6 +571,29 @@ http://zenorocha.mit-license.org
 
 /* }}} */
 
+.package-name {
+  position: absolute;
+  top: 5vh;
+  font-family: 'Overpass Mono', monospace;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.package-name::before {
+  display: block;
+  content: "Package:";
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vh;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  opacity: .7;
+}
+
+.progress-bar {
+  background-color: gold;
+}
+
 .bk-video .slide-content {
   align-items: center;
 }
@@ -593,61 +627,19 @@ http://zenorocha.mit-license.org
   height: 8vh;
 }
 
+.slide.bk-white {
+  background-color: white;
+}
+
 .slide.chart-video {
   background-color: #f2f3f7;
 }
 
-.slide.chart-videos .slide-content {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
-  grid-gap: 0 0;
+.chart-video video {
+  width: 90%;
 }
 
-.video-width {
-  width: 100%;
-}
-
-.video-height {
-  height: 100%;
-}
-
-#area-1 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  text-align: center;
-}
-
-#area-2 {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  text-align: center;
-}
-
-#area-3 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
-#area-4 {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
-
-.slide.code {
+.slide.code, .slide.vim-code {
   background: #282a36;
 }
 
@@ -693,6 +685,36 @@ http://zenorocha.mit-license.org
   max-width: 60ch;
 }
 
+.vim-code code {
+}
+
+#vimCodeElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+#vimCodeElement .LineNr {
+  opacity: 0;
+}
+
+#vimCodeElement .Include { color: #8be9fd; }
+#vimCodeElement .Identifier { color: #8be9fd; }
+#vimCodeElement .Function { color: #8be9fd; }
+#vimCodeElement .String { color: #f1fa8c; }
+
+#vimCodeElement .jsReturn,
+#vimCodeElement .jsOperator,
+#vimCodeElement .StorageClass { color: #ff79c6; }
+
+#vimCodeElement .Type { color: #8be9fd; }
+
+#vimCodeElement .jsFuncCall { color: #50fa7b; }
+
+
   </style>
 </head>
 <body>
@@ -716,50 +738,52 @@ http://zenorocha.mit-license.org
 <h2 id="responsive-interactive-and-animated">Responsive, interactive and animated</h2>
 </section>
   </div>
-  <div class="slide hidden  chart-videos" id="slide-4">
-    <section class="slide-content"><div id="area-1">
-  <video class="video-height" autoplay muted loop>
-    <source src="videos/line-chart.mp4" type="video/mp4" />
-  </video>
-</div>
-<div id="area-2">
-  <video class="video-height" autoplay muted loop>
-    <source src="videos/bar-chart.mp4" type="video/mp4" />
-  </video>
-</div>
-<div id="area-3">
-  <video class="video-width" autoplay muted loop>
-    <source src="videos/analyze.mp4" type="video/mp4" />
-  </video>
-</div>
-<div id="area-4">
-  <video class="video-width" autoplay muted loop>
-    <source src="videos/bubble-chart.mp4" type="video/mp4" />
-  </video>
-</div></section>
+  <div class="slide hidden  chart-video" id="slide-4">
+    <section class="slide-content"><video autoplay muted loop>
+  <source src="videos/line-chart.mp4" type="video/mp4" />
+</video></section>
   </div>
-  <div class="slide hidden  flex-start light" id="slide-5">
+  <div class="slide hidden  chart-video" id="slide-5">
+    <section class="slide-content"><video autoplay muted loop>
+  <source src="videos/bar-chart.mp4" type="video/mp4" />
+</video></section>
+  </div>
+  <div class="slide hidden  chart-video" id="slide-6">
+    <section class="slide-content"><video autoplay muted loop>
+  <source src="videos/analyze.mp4" type="video/mp4" />
+</video></section>
+  </div>
+  <div class="slide hidden  chart-video" id="slide-7">
+    <section class="slide-content"><video autoplay muted loop>
+  <source src="videos/bubble-chart.mp4" type="video/mp4" />
+</video></section>
+  </div>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h1 id="how-">How?</h1>
+</section>
+  </div>
+  <div class="slide hidden  flex-start light" id="slide-9">
     <section class="slide-content"><h3 id="i-couldn-t-use-an-existing-library">I couldn&#39;t use an existing library</h3>
 <p><img src="images/rechart.png" style="height: 60vh;" /></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h1 id="how-">How?</h1>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-7">
+  <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h1 id="using-ref">Using ref</h1>
-<p>It&#39;s the most common solution you&#39;ll see around the web</p>
+<h2 id="and-writing-plain-d3-code">And writing plain D3 code</h2>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-8">
+  <div class="slide hidden  bk-white" id="slide-11">
+    <section class="slide-content"><p><img src="images/d3-blocks.png" /></p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-12">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineChart</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   componentDidMount() {
     <span class="hljs-keyword">this</span>.renderChart();
   }
 
   renderChart() {
-    <span class="hljs-keyword">const</span> svg = select(<span class="hljs-keyword">this</span>.containerEl);
+    <span class="hljs-keyword">const</span> svg = d3.select(<span class="hljs-keyword">this</span>.containerEl);
     <span class="hljs-comment">// ... more d3 logic</span>
   }
 
@@ -775,17 +799,17 @@ http://zenorocha.mit-license.org
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
+  <div class="slide hidden" id="slide-13">
     <section class="slide-content"><h1 id="what-s-wrong-with-this-">What&#39;s wrong with this?</h1>
 <h2 id="it-gets-the-job-done-">It gets the job done.</h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h1 id="two-dom-libraries">Two DOM libraries</h1>
 <h2 id="react-and-d3-are-both-manipulating-the-dom">React and D3 are both manipulating the DOM</h2>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-11">
+  <div class="slide hidden  code" id="slide-15">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineChart</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   componentDidMount() { <span class="hljs-comment">/* ... */</span> }
 
@@ -801,12 +825,12 @@ http://zenorocha.mit-license.org
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden" id="slide-16">
     <section class="slide-content"><h1 id="reacting-to-updates">Reacting to updates</h1>
 <h2 id="becomes-more-complex">Becomes more complex</h2>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-13">
+  <div class="slide hidden  code" id="slide-17">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineChart</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   componentDidMount() { <span class="hljs-comment">/* ... */</span> }
 
@@ -826,12 +850,12 @@ http://zenorocha.mit-license.org
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h1 id="handling-interactions">Handling interactions</h1>
 <h2 id="the-graph-lives-in-it-s-own-world-isolated-from-the-ecosystem-of-your-app">The graph lives in it&#39;s own world, isolated from the ecosystem of your app</h2>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-15">
+  <div class="slide hidden  code" id="slide-19">
     <section class="slide-content"><pre><code class="lang-js">renderChart() {
   <span class="hljs-keyword">const</span> { onClickPoint } = <span class="hljs-keyword">this</span>.props;
 
@@ -842,7 +866,7 @@ http://zenorocha.mit-license.org
     .enter().append(<span class="hljs-string">'circle'</span>)
       .attr(<span class="hljs-string">'r'</span>, <span class="hljs-number">4</span>)
       .attr(<span class="hljs-string">'cx'</span>, d =&gt; x(d.date))
-      .attr(<span class="hljs-string">'cy'</span>, d =&gt; y(d.close))
+      .attr(<span class="hljs-string">'cy'</span>, d =&gt; y(d.value))
       .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'white'</span>)
       .attr(<span class="hljs-string">'stroke'</span>, <span class="hljs-string">'steelblue'</span>)
       .attr(<span class="hljs-string">'stroke-width'</span>, <span class="hljs-number">2.5</span>)
@@ -850,12 +874,12 @@ http://zenorocha.mit-license.org
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-20">
     <section class="slide-content"><h1 id="and-then-we-have-tooltips">And then we have tooltips</h1>
 <h2 id="where-you-have-to-inline-html-">Where you have to inline HTML.</h2>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-17">
+  <div class="slide hidden  code" id="slide-21">
     <section class="slide-content"><pre><code class="lang-js">g.selectAll(<span class="hljs-string">'dot'</span>)
   .data(data)
   .enter().append(<span class="hljs-string">'circle'</span>)
@@ -863,7 +887,7 @@ http://zenorocha.mit-license.org
     .on(<span class="hljs-string">'mouseover'</span>, (d) =&gt; {
       div.html(<span class="hljs-string">`
           &lt;span class="date"&gt;<span class="hljs-subst">${formatTime(d.date)}</span>&lt;/span&gt;
-          &lt;span class="value"&gt;<span class="hljs-subst">${d.close}</span>&lt;/span&gt;
+          &lt;span class="value"&gt;<span class="hljs-subst">${d.value}</span>&lt;/span&gt;
         `</span>)
         .style(<span class="hljs-string">'opacity'</span>, <span class="hljs-number">.9</span>)
         .style(<span class="hljs-string">'left'</span>, <span class="hljs-string">`<span class="hljs-subst">${event.pageX}</span>px`</span>)
@@ -874,45 +898,40 @@ http://zenorocha.mit-license.org
     });</code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-18">
+  <div class="slide hidden" id="slide-22">
     <section class="slide-content"><video class="bk-video" autoplay muted loop>
   <source src="videos/crazy-pills.mp4" type="video/mp4" />
 </video></section>
   </div>
-  <div class="slide hidden" id="slide-19">
+  <div class="slide hidden" id="slide-23">
     <section class="slide-content"><h1 id="we-can-do-better-">We can do better.</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-20">
+  <div class="slide hidden" id="slide-24">
     <section class="slide-content"><h1 id="react-creates-the-svg">React creates the SVG</h1>
 <h2 id="d3-computes-the-graph">D3 computes the graph</h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-21">
-    <section class="slide-content"><video class="bk-video" autoplay muted loop>
-  <source src="videos/bored.mp4" type="video/mp4" />
-</video></section>
+  <div class="slide hidden" id="slide-25">
+    <section class="slide-content"><iframe 
+  src="/" 
+  width="100%" 
+  height="100%" 
+  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: white;" 
+  frameborder="0"
+></iframe></section>
   </div>
-  <div class="slide hidden" id="slide-22">
-    <section class="slide-content"><h1 id="understand-what-d3-does">Understand what D3 does</h1>
-<h2 id="let-s-have-a-look">Let&#39;s have a look</h2>
+  <div class="slide hidden" id="slide-26">
+    <section class="slide-content"><h1 id="the-svg">The SVG</h1>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-23">
+  <div class="slide hidden  code" id="slide-27">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> svg = d3.select(<span class="hljs-keyword">this</span>.containerEl);
 <span class="hljs-keyword">const</span> g = svg.append(<span class="hljs-string">'g'</span>)
   .attr(<span class="hljs-string">'transform'</span>, <span class="hljs-string">`translate(<span class="hljs-subst">${margin.left}</span>, <span class="hljs-subst">${margin.top}</span>)`</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-24">
-    <section class="slide-content"><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"960"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"500"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"translate(35, 20)"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Omitted --&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden  code" id="slide-25">
+  <div class="slide hidden  code" id="slide-28">
     <section class="slide-content"><pre><code class="lang-js">  render() {
     <span class="hljs-keyword">return</span> (
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">{width}</span> <span class="hljs-attr">height</span>=<span class="hljs-string">{height}</span>&gt;</span>
@@ -923,11 +942,15 @@ http://zenorocha.mit-license.org
   }</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-26">
+  <div class="slide hidden" id="slide-29">
+    <section class="slide-content"><h1 id="the-path">The path</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-30">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// Create the drawing function</span>
 <span class="hljs-keyword">const</span> line = d3.line()
   .x(d =&gt; x(d.date))
-  .y(d =&gt; y(d.close));
+  .y(d =&gt; y(d.value));
 
 <span class="hljs-comment">// Append the path to the group</span>
 g.append(<span class="hljs-string">'path'</span>)
@@ -940,8 +963,10 @@ g.append(<span class="hljs-string">'path'</span>)
   .attr(<span class="hljs-string">'d'</span>, line);</code></pre>
 </section>
   </div>
-  <div class="slide hidden  doc" id="slide-27">
-    <section class="slide-content"><h1 id="d3-line-">d3.line()</h1>
+  <div class="slide hidden  doc" id="slide-31">
+    <section class="slide-content"><p class="package-name">d3-shape</p>
+
+<h1 id="d3-line-">d3.line()</h1>
 <p>Constructs a new line generator with the default settings.</p>
 <h1 id="_line_-data-"><em>line</em>(data)</h1>
 <p>Generates a line for the given array of data. [...]</p>
@@ -953,28 +978,30 @@ returns this line generator. [...]</p>
 returns this line generator. [...]</p>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-28">
-    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.state;
+  <div class="slide hidden  code" id="slide-32">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.props;
+
+<span class="hljs-keyword">const</span> line = d3.line()
+  .x(d =&gt; x(d.date))
+  .y(d =&gt; y(d.value));
 
 <span class="hljs-keyword">return</span> (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">{width}</span> <span class="hljs-attr">height</span>=<span class="hljs-string">{height}</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">{`translate(${margin.left},</span> ${<span class="hljs-attr">margin.top</span>})`}&gt;</span>
-
       <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+        <span class="hljs-attr">d</span>=<span class="hljs-string">{line(data)}</span>
         <span class="hljs-attr">fill</span>=<span class="hljs-string">"none"</span>
         <span class="hljs-attr">stroke</span>=<span class="hljs-string">"steelblue"</span>
         <span class="hljs-attr">strokeLinejoin</span>=<span class="hljs-string">"round"</span>
         <span class="hljs-attr">strokeLinecap</span>=<span class="hljs-string">"round"</span>
         <span class="hljs-attr">strokeWidth</span>=<span class="hljs-string">"2.5"</span>
-        <span class="hljs-attr">d</span>=<span class="hljs-string">{line(data)}</span>
       /&gt;</span>
-
     <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
 )</span>;</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-29">
+  <div class="slide hidden  code" id="slide-33">
     <section class="slide-content"><pre><code class="lang-js">componentWillMount() {
   <span class="hljs-keyword">const</span> { width, height, margin, data } = <span class="hljs-keyword">this</span>.props;
 
@@ -984,58 +1011,43 @@ returns this line generator. [...]</p>
 
   <span class="hljs-keyword">const</span> y = scaleLinear()
     .rangeRound([height - margin.top - margin.bottom, <span class="hljs-number">0</span>])
-    .domain(extent(data, d =&gt; d.close));
+    .domain(extent(data, d =&gt; d.value));
 
   <span class="hljs-keyword">const</span> graphData = data.map((d) =&gt; ({
     ...d,
     x: x(d.date),
-    y: y(d.close),
+    y: y(d.value),
   }));
 
   <span class="hljs-keyword">this</span>.setState({ data: graphData });
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-30">
+  <div class="slide hidden  code" id="slide-34">
     <section class="slide-content"><pre><code class="lang-diff"> const line = d3.line()
 <span class="hljs-deletion">-  .x(d =&gt; x(d.date))</span>
+<span class="hljs-deletion">-  .y(d =&gt; y(d.value));</span>
 <span class="hljs-addition">+  .x(d =&gt; d.x)</span>
-<span class="hljs-deletion">-  .y(d =&gt; y(d.close));</span>
 <span class="hljs-addition">+  .y(d =&gt; d.y);</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-31">
+  <div class="slide hidden" id="slide-35">
+    <section class="slide-content"><h1 id="the-points">The points</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-36">
     <section class="slide-content"><pre><code class="lang-js">g.selectAll(<span class="hljs-string">'dot'</span>)
   .data(data)
   .enter().append(<span class="hljs-string">'circle'</span>)
     .attr(<span class="hljs-string">'r'</span>, <span class="hljs-number">4</span>)
     .attr(<span class="hljs-string">'cx'</span>, d =&gt; x(d.date))
-    .attr(<span class="hljs-string">'cy'</span>, d =&gt; y(d.close))
+    .attr(<span class="hljs-string">'cy'</span>, d =&gt; y(d.value))
     .attr(<span class="hljs-string">'fill'</span>, <span class="hljs-string">'white'</span>)
     .attr(<span class="hljs-string">'stroke'</span>, <span class="hljs-string">'steelblue'</span>)
     .attr(<span class="hljs-string">'stroke-width'</span>, <span class="hljs-number">2.5</span>);</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-32">
-    <section class="slide-content"><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"960"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"500"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"translate(35, 20)"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- &lt;path&gt; omitted --&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">circle</span> <span class="hljs-attr">r</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">cx</span>=<span class="hljs-string">"905"</span> <span class="hljs-attr">cy</span>=<span class="hljs-string">"457"</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"white"</span> <span class="hljs-attr">stroke</span>=<span class="hljs-string">"steelblue"</span> <span class="hljs-attr">stroke-width</span>=<span class="hljs-string">"2.5"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">circle</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">circle</span> <span class="hljs-attr">r</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">cx</span>=<span class="hljs-string">"880"</span> <span class="hljs-attr">cy</span>=<span class="hljs-string">"460"</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"white"</span> <span class="hljs-attr">stroke</span>=<span class="hljs-string">"steelblue"</span> <span class="hljs-attr">stroke-width</span>=<span class="hljs-string">"2.5"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">circle</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">circle</span> <span class="hljs-attr">r</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">cx</span>=<span class="hljs-string">"804"</span> <span class="hljs-attr">cy</span>=<span class="hljs-string">"450"</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"white"</span> <span class="hljs-attr">stroke</span>=<span class="hljs-string">"steelblue"</span> <span class="hljs-attr">stroke-width</span>=<span class="hljs-string">"2.5"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">circle</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- ...and so on --&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden  code" id="slide-33">
-    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.state;
-
-data.map((d, i) =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Point</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span> <span class="hljs-attr">d</span>=<span class="hljs-string">{d}</span> /&gt;</span>)</span></code></pre>
-</section>
-  </div>
-  <div class="slide hidden  code" id="slide-34">
+  <div class="slide hidden  code" id="slide-37">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> Point = ({ d }) =&gt; (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
     <span class="hljs-attr">cx</span>=<span class="hljs-string">{d.x}</span>
@@ -1048,7 +1060,28 @@ data.map((d, i) =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="
 )</span>;</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-35">
+  <div class="slide hidden  code" id="slide-38">
+    <section class="slide-content"><pre><code class="lang-js">const { data } = this.state;
+
+return (
+  &lt;svg width={width} height={height}&gt;
+    &lt;g transform={`translate(${margin.left}, ${margin.top})`}&gt;
+      &lt;path d={line(data)} /&gt;
+
+      {data.map((d, i) =&gt; (
+        &lt;Point key={i} d={d} /&gt;
+      ))}
+
+    &lt;/g&gt;
+  &lt;/svg&gt;
+);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-39">
+    <section class="slide-content"><h1 id="the-tooltip">The tooltip</h1>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-40">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> div = d3.select(<span class="hljs-keyword">this</span>.tooltipEl)
   .style(<span class="hljs-string">'opacity'</span>, <span class="hljs-number">0</span>);
 
@@ -1059,9 +1092,9 @@ g.selectAll(<span class="hljs-string">'dot'</span>)
     .on(<span class="hljs-string">'mouseover'</span>, (d) =&gt; {
       div.html(<span class="hljs-string">`
         &lt;span class="date"&gt;<span class="hljs-subst">${formatTime(d.date)}</span>&lt;/span&gt;
-        &lt;span class="value"&gt;<span class="hljs-subst">${d.close}</span>&lt;/span&gt;
+        &lt;span class="value"&gt;<span class="hljs-subst">${d.value}</span>&lt;/span&gt;
         `</span>)
-        .style(<span class="hljs-string">'opacity'</span>, <span class="hljs-number">.9</span>)
+        .style(<span class="hljs-string">'opacity'</span>, <span class="hljs-number">1</span>)
         .style(<span class="hljs-string">'left'</span>, <span class="hljs-string">`<span class="hljs-subst">${event.pageX}</span>px`</span>)
         .style(<span class="hljs-string">'top'</span>, <span class="hljs-string">`<span class="hljs-subst">${event.pageY - 28}</span>px`</span>);
     })
@@ -1070,29 +1103,29 @@ g.selectAll(<span class="hljs-string">'dot'</span>)
     });</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-36">
-    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> formatTime = timeFormat(<span class="hljs-string">"%e %B"</span>);
+  <div class="slide hidden  code" id="slide-41">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">import</span> format <span class="hljs-keyword">from</span> <span class="hljs-string">'date-fns/format'</span>;
 
 <span class="hljs-keyword">const</span> Tooltip = ({ hidden, d }) =&gt; (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
     <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
-      <span class="hljs-attr">opacity:</span> <span class="hljs-attr">hidden</span> ? <span class="hljs-attr">0</span> <span class="hljs-attr">:</span> <span class="hljs-attr">0.9</span>,
+      <span class="hljs-attr">opacity:</span> <span class="hljs-attr">hidden</span> ? <span class="hljs-attr">0</span> <span class="hljs-attr">:</span> <span class="hljs-attr">1</span>
       <span class="hljs-attr">transform:</span> `<span class="hljs-attr">translate</span>(${<span class="hljs-attr">d.x</span>}<span class="hljs-attr">px</span>, ${<span class="hljs-attr">d.y</span> <span class="hljs-attr">-</span> <span class="hljs-attr">35</span>}<span class="hljs-attr">px</span>)`,
     }}
   &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"date"</span>&gt;</span>{formatTime(d.date)}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"value"</span>&gt;</span>{d.close}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"date"</span>&gt;</span>{format(d.date, 'MMM D')}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"value"</span>&gt;</span>{d.value}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 )</span>;</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-37">
+  <div class="slide hidden  code" id="slide-42">
     <section class="slide-content"><pre><code class="lang-js">render() {
   <span class="hljs-keyword">const</span> { isTooltipVisible, tooltipDate } = <span class="hljs-keyword">this</span>.state;
 
   <span class="hljs-keyword">return</span> (
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
         <span class="hljs-attr">width:</span> `${<span class="hljs-attr">width</span>}<span class="hljs-attr">px</span>`,
         <span class="hljs-attr">height:</span> `${<span class="hljs-attr">height</span>}<span class="hljs-attr">px</span>`,
         <span class="hljs-attr">position:</span> '<span class="hljs-attr">relative</span>',
@@ -1108,7 +1141,11 @@ g.selectAll(<span class="hljs-string">'dot'</span>)
 }</code></pre>
 </section>
   </div>
-  <div class="slide hidden  code" id="slide-38">
+  <div class="slide hidden  bk-white" id="slide-43">
+    <section class="slide-content"><p><img src="./images/axes.png" /></p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-44">
     <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// Point</span>
 <span class="hljs-keyword">const</span> Point = ({ d, onMouseEnter, onMouseLeave }) =&gt; (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
@@ -1129,7 +1166,381 @@ data.map((d, i) =&gt; (
 )</span>)}</code></pre>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-39">
+  <div class="slide hidden" id="slide-45">
+    <section class="slide-content"><h1 id="the-axis">The axis</h1>
+</section>
+  </div>
+  <div class="slide hidden  doc" id="slide-46">
+    <section class="slide-content"><p class="package-name">d3-array</p>
+
+<h1 id="d3-extent-_array-accessor-_-">d3.extent(<em>array[, accessor]</em>)</h1>
+<p>Returns the minimum and maximum value in the given array using natural order.</p>
+<h1 id="d3-ticks-_start-stop-count_-">d3.ticks(<em>start, stop, count</em>)</h1>
+<p>Returns an array of approximately count + 1 uniformly-spaced, nicely-rounded values between start and stop (inclusive).</p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-47">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> [min, max] = extent(data, d =&gt; d.date);
+
+<span class="hljs-keyword">const</span> values = ticks(min, max, <span class="hljs-number">5</span>);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  vim-code" id="slide-48">
+    <section class="slide-content"><p><code></p>
+<p><pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="Include">import</span> React <span class="Include">from</span> <span class="String">&#39;react&#39;</span>;
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span><span class="Include">import</span> { scaleLinear } <span class="Include">from</span> <span class="String">&#39;d3-scale&#39;</span>;
+<span id="L4" class="LineNr"> 4 </span><span class="Include">import</span> { ticks, extent } <span class="Include">from</span> <span class="String">&#39;d3-array&#39;</span>;
+<span id="L5" class="LineNr"> 5 </span>
+<span id="L6" class="LineNr"> 6 </span><span class="StorageClass">const</span> YAsix <span class="jsOperator">=</span> ({ data, height, margin }) <span class="Type">=&gt;</span> {
+<span id="L7" class="LineNr"> 7 </span>  <span class="StorageClass">const</span> [min, max] <span class="jsOperator">=</span> <span class="jsFuncCall">extent</span>(data, d <span class="Type">=&gt;</span> d.value);
+<span id="L8" class="LineNr"> 8 </span>  <span class="StorageClass">const</span> values <span class="jsOperator">=</span> <span class="jsFuncCall">ticks</span>(<span class="Number">0</span>, <span class="Number">100</span>, <span class="Number">5</span>);
+<span id="L9" class="LineNr"> 9 </span>
+<span id="L10" class="LineNr">10 </span>  <span class="StorageClass">const</span> y <span class="jsOperator">=</span> <span class="jsFuncCall">scaleLinear</span>()
+<span id="L11" class="LineNr">11 </span>    .<span class="jsFuncCall">range</span>([<span class="Number">0</span>, height <span class="jsOperator">-</span> margin.top <span class="jsOperator">-</span> margin.bottom])
+<span id="L12" class="LineNr">12 </span>    .<span class="jsFuncCall">domain</span>([max, min]);
+<span id="L13" class="LineNr">13 </span>
+<span id="L14" class="LineNr">14 </span>  <span class="jsReturn">return</span> (
+<span id="L15" class="LineNr">15 </span>    <span class="Function">&lt;</span><span class="Function">div</span>
+<span id="L16" class="LineNr">16 </span><span class="Function">      </span><span class="Type">style</span>={{
+<span id="L17" class="LineNr">17 </span>        width: <span class="String">&#39;25px&#39;</span>,
+<span id="L18" class="LineNr">18 </span>        position: <span class="String">&#39;absolute&#39;</span>,
+<span id="L19" class="LineNr">19 </span>        pointerEvents: <span class="String">&#39;none&#39;</span>,
+<span id="L20" class="LineNr">20 </span>        top: <span class="Number">0</span> <span class="jsOperator">+</span> margin.top,
+<span id="L21" class="LineNr">21 </span>        left: <span class="Number">0</span>,
+<span id="L22" class="LineNr">22 </span>        bottom: <span class="Number">0</span> <span class="jsOperator">+</span> margin.bottom,
+<span id="L23" class="LineNr">23 </span>      }}
+<span id="L24" class="LineNr">24 </span><span class="Function">    &gt;</span>
+<span id="L25" class="LineNr">25 </span>      {values.<span class="jsFuncCall">map</span>((v, i) <span class="Type">=&gt;</span> (
+<span id="L26" class="LineNr">26 </span>        <span class="Function">&lt;</span><span class="Function">span</span>
+<span id="L27" class="LineNr">27 </span><span class="Function">          </span><span class="Type">key</span>={i}
+<span id="L28" class="LineNr">28 </span><span class="Function">          </span><span class="Type">style</span>={{
+<span id="L29" class="LineNr">29 </span>            lineHeight: <span class="Number">0</span>,
+<span id="L30" class="LineNr">30 </span>            fontSize: <span class="String">&#39;12px&#39;</span>,
+<span id="L31" class="LineNr">31 </span>            position: <span class="String">&#39;absolute&#39;</span>,
+<span id="L32" class="LineNr">32 </span>            right: <span class="Number">0</span>,
+<span id="L33" class="LineNr">33 </span>            top: <span class="String">`</span>${<span class="jsFuncCall">y</span>(v)}<span class="String">px`</span>,
+<span id="L34" class="LineNr">34 </span>          }}
+<span id="L35" class="LineNr">35 </span><span class="Function">        &gt;</span>
+<span id="L36" class="LineNr">36 </span>          {v}
+<span id="L37" class="LineNr">37 </span>        <span class="Identifier">&lt;/span&gt;</span>
+<span id="L38" class="LineNr">38 </span>      ))}
+<span id="L39" class="LineNr">39 </span>    <span class="Identifier">&lt;/div&gt;</span>
+<span id="L40" class="LineNr">40 </span>  );
+<span id="L41" class="LineNr">41 </span>}
+<span id="L42" class="LineNr">42 </span>
+<span id="L43" class="LineNr">43 </span><span class="Include">export</span> <span class="StorageClass">default</span> YAsix;
+</pre>
+</code></p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-49">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> { width, height, margin } = <span class="hljs-keyword">this</span>.props;
+<span class="hljs-keyword">const</span> { data } = <span class="hljs-keyword">this</span>.state;
+
+<span class="hljs-keyword">return</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">width:</span> `${<span class="hljs-attr">width</span>}<span class="hljs-attr">px</span>`,
+      <span class="hljs-attr">height:</span> `${<span class="hljs-attr">height</span>}<span class="hljs-attr">px</span>`,
+      <span class="hljs-attr">position:</span> '<span class="hljs-attr">relative</span>',
+    }}
+  &gt;</span>
+    {/* Tooltip and chart omitted */}
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">XAxis</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">width</span>=<span class="hljs-string">{width}</span> <span class="hljs-attr">margin</span>=<span class="hljs-string">{margin}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">YAxis</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{data}</span> <span class="hljs-attr">height</span>=<span class="hljs-string">{height}</span> <span class="hljs-attr">margin</span>=<span class="hljs-string">{margin}</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+)</span>;</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-50">
+    <section class="slide-content"><h1 id="that-s-it-">That&#39;s it!</h1>
+<h2 id="what-did-we-earn-">What did we earn?</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-51">
+    <section class="slide-content"><h1 id="server-rendering">Server rendering</h1>
+<h2 id="we-re-not-relying-on-the-dom-anymore">We&#39;re not relying on the DOM anymore</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-52">
+    <section class="slide-content"><h1 id="modularity">Modularity</h1>
+<h2 id="it-s-all-react-components">It&#39;s all react components</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-53">
+    <section class="slide-content"><h1 id="extendibility">Extendibility</h1>
+<h2 id="you-re-in-full-control">You&#39;re in full control</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-54">
+    <section class="slide-content"><h1 id="performances">Performances</h1>
+<h2 id="react-fiber-is-really-fast">React Fiber is really fast</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-55">
+    <section class="slide-content"><h1 id="react-">React ❤️</h1>
+<h2 id="it-just-works-">It just works™</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-56">
+    <section class="slide-content"><h1 id="animations">Animations</h1>
+<h2 id="let-s-make-it-beautiful">Let&#39;s make it beautiful</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-57">
+    <section class="slide-content"><video class="bk-video" autoplay muted loop>
+  <source src="https://media.giphy.com/media/3o7TKyPpWvFrpwua2I/giphy.mp4" type="video/mp4" />
+</video></section>
+  </div>
+  <div class="slide hidden" id="slide-58">
+    <section class="slide-content"><iframe 
+  src="/" 
+  width="100%" 
+  height="100%" 
+  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: white;" 
+  frameborder="0"
+></iframe></section>
+  </div>
+  <div class="slide hidden" id="slide-59">
+    <section class="slide-content"><h1 id="css-transforms">CSS Transforms</h1>
+<h2 id="when-we-can-keep-things-simple">When we can keep things simple</h2>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-60">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> Tooltip = ({ hidden, d }) =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">opacity:</span> <span class="hljs-attr">hidden</span> ? <span class="hljs-attr">0</span> <span class="hljs-attr">:</span> <span class="hljs-attr">1</span>,
+      <span class="hljs-attr">transition:</span> '<span class="hljs-attr">opacity</span> <span class="hljs-attr">250ms</span> <span class="hljs-attr">ease-in-out</span>',
+      <span class="hljs-attr">transform:</span> `<span class="hljs-attr">translate</span>(${<span class="hljs-attr">d.x</span>}<span class="hljs-attr">px</span>, ${<span class="hljs-attr">d.y</span> <span class="hljs-attr">-</span> <span class="hljs-attr">35</span>}<span class="hljs-attr">px</span>)`,
+    }}
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"date"</span>&gt;</span>{formatDate(d.date, 'D MMM YYYY')}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"value"</span>&gt;</span>{d.value}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+)</span>;</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-61">
+    <section class="slide-content"><h1 id="d3-timing-functions">D3 timing functions</h1>
+<h2 id="for-complex-animations">For complex animations</h2>
+</section>
+  </div>
+  <div class="slide hidden  doc" id="slide-62">
+    <section class="slide-content"><p class="package-name">d3-timer</p>
+
+<h1 id="d3-timer-_callback-delay-time-_-">d3.timer(<em>callback[, delay[, time]</em>)</h1>
+<p>Schedules a new timer, invoking the specified callback repeatedly until the timer is stopped.</p>
+<h1 id="_timer_-stop-"><em>timer</em>.stop()</h1>
+<p>Stops this timer, preventing subsequent callbacks</p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-63">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> duration = <span class="hljs-number">500</span>;
+
+<span class="hljs-keyword">const</span> t = timer((elapsed) =&gt; {
+
+  <span class="hljs-comment">// Do somehting</span>
+
+  <span class="hljs-keyword">if</span> (elapsed &gt; duration) <span class="hljs-keyword">return</span> t.stop();
+
+}, <span class="hljs-number">100</span>);</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  doc" id="slide-64">
+    <section class="slide-content"><p class="package-name">d3-ease</p>
+
+<h1 id="_ease_-_t_-"><em>ease</em>(<em>t</em>)</h1>
+<p>Given the specified normalized time t, typically in the range [0,1], returns the “eased” time <em>t</em>, also typically in [0,1]</p>
+<h1 id="d3-easecubicin-_t_-">d3.easeCubicIn(<em>t</em>)</h1>
+<p><img width="550px" src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicIn.png" /></p>
+<h1 id="d3-easeelastic-_t-amptitude-period_-">d3.easeElastic(<em>t[, amptitude[, period</em>)</h1>
+<p><img width="550px" src="https://raw.githubusercontent.com/d3/d3-ease/master/img/elasticOut.png" /></p>
+</section>
+  </div>
+  <div class="slide hidden  doc" id="slide-65">
+    <section class="slide-content"><p class="package-name">d3-interpolate</p>
+
+<h1 id="d3-interpolatenumber-_a-b_-">d3.interpolateNumber(<em>a, b</em>)</h1>
+<p>Returns an interpolator between the two numbers a and b.</p>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-66">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-keyword">const</span> duration = <span class="hljs-number">1000</span>;
+
+<span class="hljs-keyword">const</span> timeScale = scaleLinear()
+  .domain([<span class="hljs-number">0</span>, duration])
+  .clamp(<span class="hljs-literal">true</span>);
+
+<span class="hljs-keyword">const</span> i = interpolateNumber(<span class="hljs-number">0</span>, <span class="hljs-number">4</span>);
+
+<span class="hljs-keyword">const</span> t = timer((elapsed) =&gt; {
+  <span class="hljs-keyword">const</span> te = easeElasticOut(timeScale(elapsed), <span class="hljs-number">4</span>, <span class="hljs-number">0.5</span>);
+
+  <span class="hljs-keyword">const</span> radius = i(te);
+  <span class="hljs-keyword">this</span>.setState({ radius });
+
+  <span class="hljs-keyword">if</span> (elapsed &gt; duration) <span class="hljs-keyword">return</span> t.stop();
+});</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-67">
+    <section class="slide-content"><h1 id="-transitiongroup-"><code>TransitionGroup</code></h1>
+<h2 id="to-coordinate-the-animations">To coordinate the animations</h2>
+</section>
+  </div>
+  <div class="slide hidden  doc" id="slide-68">
+    <section class="slide-content"><p class="package-name">react-transition-group</p>
+
+<h1 id="transition">Transition</h1>
+<p>The Transition component lets you describe a transition from one component state to another over time with a simple declarative API</p>
+<h1 id="transitiongroup">TransitionGroup</h1>
+<p>The <code>&lt;TransitionGroup&gt;</code> component manages a set of <code>&lt;Transition&gt;</code> components in a list.</p>
+</section>
+  </div>
+  <div class="slide hidden  vim-code" id="slide-69">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// Point -&gt; render</span>
+
+&lt;Transition
+  <span class="hljs-keyword">in</span>
+  timeout={DURATION}
+  onEnter={<span class="hljs-keyword">this</span>.handleEnter}
+  {...others}
+&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">circle</span> {<span class="hljs-attr">...</span>} /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Transition</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-70">
+    <section class="slide-content"><pre><code class="lang-js"><span class="hljs-comment">// LineChart -&gt; render</span>
+
+&lt;TransitionGroup component=<span class="hljs-string">"g"</span> appear&gt;
+  {data.map((d, i) =&gt; (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Point</span> 
+      <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span>
+      {<span class="hljs-attr">...</span>} 
+    /&gt;</span>
+  )</span>)}
+&lt;<span class="hljs-regexp">/TransitionGroup&gt;</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-71">
+    <section class="slide-content"><h1 id="that-s-it">That&#39;s it</h1>
+<h2 id="effortless-60-fps">Effortless 60 FPS</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-72">
+    <section class="slide-content"><video class="bk-video" autoplay muted loop>
+  <source src="https://media.giphy.com/media/TXJiSN8vCERuE/giphy.mp4" type="video/mp4" />
+</video></section>
+  </div>
+  <div class="slide hidden" id="slide-73">
+    <section class="slide-content"><h1 id="does-it-scale-">Does it scale?</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-74">
+    <section class="slide-content"><h1 id="yes">Yes</h1>
+<h2 id="up-to-a-point">Up to a point</h2>
+</section>
+  </div>
+  <div class="slide hidden  chart-video" id="slide-75">
+    <section class="slide-content"><video autoplay muted loop>
+  <source src="videos/bubble-chart.mp4" type="video/mp4" />
+</video></section>
+  </div>
+  <div class="slide hidden  code" id="slide-76">
+    <section class="slide-content"><pre><code class="lang-js">drawGraph() {
+  <span class="hljs-keyword">const</span> { nodes } = <span class="hljs-keyword">this</span>.props;
+  <span class="hljs-keyword">const</span> context = <span class="hljs-keyword">this</span>.$canvas.getContext(<span class="hljs-string">'2d'</span>);
+
+  <span class="hljs-comment">// Draw the nodes</span>
+  nodes.forEach(<span class="hljs-keyword">this</span>.drawNode);
+  <span class="hljs-comment">// ...</span>
+}
+
+containerRef(el) {
+  <span class="hljs-keyword">this</span>.$canvas = el;
+}
+
+render() {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{this.containerRef}</span> /&gt;</span>
+  )</span>;
+}</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-77">
+    <section class="slide-content"><pre><code class="lang-js">handleZoom() {
+  <span class="hljs-keyword">this</span>.transform = {
+    x: event.transform.x,
+    y: event.transform.y,
+    k: event.transform.k,
+  };
+
+  <span class="hljs-keyword">this</span>.drawGraph();
+}</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  " id="slide-78">
+    <section class="slide-content"><h1 id="performance-considerations">Performance considerations</h1>
+<h2 id="some-best-practices">Some best practices</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-79">
+    <section class="slide-content"><h1 id="use-purecomponent-">Use <code>PureComponent</code></h1>
+<h2 id="-render-should-run-as-few-times-as-possible"><code>render</code> should run as few times as possible</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-80">
+    <section class="slide-content"><h1 id="keep-shallow-equality-in-mind">Keep shallow equality in mind</h1>
+<h2 id="it-ll-avoid-wasted-renders">It&#39;ll avoid wasted renders</h2>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-81">
+    <section class="slide-content"><pre><code class="lang-js">data.map((d, i) =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Point</span>
+    <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span>
+    <span class="hljs-attr">d</span>=<span class="hljs-string">{d}</span>
+    <span class="hljs-attr">onMouseEnter</span>=<span class="hljs-string">{()</span> =&gt;</span> this.handleMouseEnterPoint(d)}
+    onMouseLeave={() =&gt; this.handleMouseLeavePoint(d)}
+  /&gt;
+)</span>)</code></pre>
+</section>
+  </div>
+  <div class="slide hidden  code" id="slide-82">
+    <section class="slide-content"><pre><code class="lang-js">data.map((d, i) =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Point</span>
+    <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span>
+    <span class="hljs-attr">d</span>=<span class="hljs-string">{d}</span>
+    <span class="hljs-attr">onMouseEnter</span>=<span class="hljs-string">{this.handleMouseEnterPoint}</span>
+    <span class="hljs-attr">onMouseLeave</span>=<span class="hljs-string">{this.handleMouseLeavePoint}</span>
+  /&gt;</span>
+)</span>)</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-83">
+    <section class="slide-content"><h1 id="keep-render-lean">Keep <code>render</code> lean</h1>
+<h2 id="don-t-perform-complex-calculations-on-render">Don&#39;t perform complex calculations on render</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-84">
+    <section class="slide-content"><h1 id="prefer-small-components">Prefer small components</h1>
+<h2 id="leverage-the-react-reconciliation-algorithm">Leverage the react reconciliation algorithm</h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-85">
+    <section class="slide-content"><iframe 
+  src="/" 
+  width="100%" 
+  height="100%" 
+  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: white;" 
+  frameborder="0"
+></iframe></section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-86">
     <section class="slide-content"><div class="author">
   <h1 class="name">Alberto Restifo</h1>
     <h3 class="twitter">
