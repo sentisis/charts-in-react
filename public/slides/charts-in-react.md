@@ -46,6 +46,10 @@ theme: ./theme
   <source src="videos/bubble-chart.mp4" type="video/mp4" />
 </video>
 
+--
+
+# How?
+
 -- flex-start light
 
 ### I couldn't use an existing library
@@ -54,12 +58,12 @@ theme: ./theme
 
 --
 
-# How?
-
---
-
 # Using ref
 ## And writing plain D3 code
+
+-- bk-white
+
+<img src="images/d3-blocks.png" />
 
 -- code
 
@@ -70,7 +74,7 @@ class LineChart extends Component {
   }
 
   renderChart() {
-    const svg = select(this.containerEl);
+    const svg = d3.select(this.containerEl);
     // ... more d3 logic
   }
 
@@ -159,7 +163,7 @@ renderChart() {
     .enter().append('circle')
       .attr('r', 4)
       .attr('cx', d => x(d.date))
-      .attr('cy', d => y(d.close))
+      .attr('cy', d => y(d.value))
       .attr('fill', 'white')
       .attr('stroke', 'steelblue')
       .attr('stroke-width', 2.5)
@@ -182,7 +186,7 @@ g.selectAll('dot')
     .on('mouseover', (d) => {
       div.html(`
           <span class="date">${formatTime(d.date)}</span>
-          <span class="value">${d.close}</span>
+          <span class="value">${d.value}</span>
         `)
         .style('opacity', .9)
         .style('left', `${event.pageX}px`)
@@ -253,7 +257,7 @@ const g = svg.append('g')
 // Create the drawing function
 const line = d3.line()
   .x(d => x(d.date))
-  .y(d => y(d.close));
+  .y(d => y(d.value));
 
 // Append the path to the group
 g.append('path')
@@ -267,6 +271,8 @@ g.append('path')
 ```
 
 -- doc
+
+<p class="package-name">d3-shape</p>
 
 # d3.line()
 
@@ -293,7 +299,7 @@ const { data } = this.props;
 
 const line = d3.line()
   .x(d => x(d.date))
-  .y(d => y(d.close));
+  .y(d => y(d.value));
 
 return (
   <svg width={width} height={height}>
@@ -323,12 +329,12 @@ componentWillMount() {
 
   const y = scaleLinear()
     .rangeRound([height - margin.top - margin.bottom, 0])
-    .domain(extent(data, d => d.close));
+    .domain(extent(data, d => d.value));
 
   const graphData = data.map((d) => ({
     ...d,
     x: x(d.date),
-    y: y(d.close),
+    y: y(d.value),
   }));
 
   this.setState({ data: graphData });
@@ -340,7 +346,7 @@ componentWillMount() {
 ```diff
  const line = d3.line()
 -  .x(d => x(d.date))
--  .y(d => y(d.close));
+-  .y(d => y(d.value));
 +  .x(d => d.x)
 +  .y(d => d.y);
 ```
@@ -357,7 +363,7 @@ g.selectAll('dot')
   .enter().append('circle')
     .attr('r', 4)
     .attr('cx', d => x(d.date))
-    .attr('cy', d => y(d.close))
+    .attr('cy', d => y(d.value))
     .attr('fill', 'white')
     .attr('stroke', 'steelblue')
     .attr('stroke-width', 2.5);
@@ -414,9 +420,9 @@ g.selectAll('dot')
     .on('mouseover', (d) => {
       div.html(`
         <span class="date">${formatTime(d.date)}</span>
-        <span class="value">${d.close}</span>
+        <span class="value">${d.value}</span>
         `)
-        .style('opacity', .9)
+        .style('opacity', 1)
         .style('left', `${event.pageX}px`)
         .style('top', `${event.pageY - 28}px`);
     })
@@ -433,7 +439,7 @@ import format from 'date-fns/format';
 const Tooltip = ({ hidden, d }) => (
   <div
     style={{
-      opacity: hidden ? 0 : 0.9,
+      opacity: hidden ? 0 : 1
       transform: `translate(${d.x}px, ${d.y - 35}px)`,
     }}
   >
@@ -467,7 +473,7 @@ render() {
 }
 ```
 
---
+-- bk-white
 
 <img src="./images/axes.png" />
 
@@ -499,6 +505,8 @@ data.map((d, i) => (
 # The axis
 
 -- doc
+
+<p class="package-name">d3-array</p>
 
 # d3.extent(_array[, accessor]_)
 
@@ -631,6 +639,16 @@ return (
 
 --
 
+<iframe 
+  src="/" 
+  width="100%" 
+  height="100%" 
+  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: white;" 
+  frameborder="0"
+></iframe>
+
+--
+
 # CSS Transforms
 ## When we can keep things simple
 
@@ -658,6 +676,8 @@ const Tooltip = ({ hidden, d }) => (
 
 -- doc
 
+<p class="package-name">d3-timer</p>
+
 # d3.timer(_callback[, delay[, time]_)
 
 Schedules a new timer, invoking the specified callback repeatedly until the timer is stopped.
@@ -683,19 +703,23 @@ const t = timer((elapsed) => {
 
 -- doc
 
+<p class="package-name">d3-ease</p>
+
 # _ease_(_t_)
 
 Given the specified normalized time t, typically in the range [0,1], returns the “eased” time _t_, also typically in [0,1]
 
 # d3.easeCubicIn(_t_)
 
-<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicIn.png" />
+<img width="550px" src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicIn.png" />
 
 # d3.easeElastic(_t[, amptitude[, period_)
 
-<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/elasticOut.png" />
+<img width="550px" src="https://raw.githubusercontent.com/d3/d3-ease/master/img/elasticOut.png" />
 
 -- doc
+
+<p class="package-name">d3-interpolate</p>
 
 # d3.interpolateNumber(_a, b_)
 
@@ -713,7 +737,7 @@ const timeScale = scaleLinear()
 const i = interpolateNumber(0, 4);
 
 const t = timer((elapsed) => {
-  const te = easeElasticOut(timeScale(elapsed), 4, 0.5)
+  const te = easeElasticOut(timeScale(elapsed), 4, 0.5);
 
   const radius = i(te);
   this.setState({ radius });
@@ -722,3 +746,173 @@ const t = timer((elapsed) => {
 });
 ```
 
+--
+
+# `TransitionGroup`
+## To coordinate the animations
+
+-- doc
+
+<p class="package-name">react-transition-group</p>
+
+# Transition
+
+The Transition component lets you describe a transition from one component state to another over time with a simple declarative API
+
+# TransitionGroup
+
+The `<TransitionGroup>` component manages a set of `<Transition>` components in a list.
+
+-- vim-code
+
+```js
+// Point -> render
+
+<Transition
+  in
+  timeout={DURATION}
+  onEnter={this.handleEnter}
+  {...others}
+>
+  <circle {...} />
+</Transition>
+```
+
+-- code
+
+```js
+// LineChart -> render
+
+<TransitionGroup component="g" appear>
+  {data.map((d, i) => (
+    <Point 
+      key={i}
+      {...} 
+    />
+  ))}
+</TransitionGroup>
+```
+
+--
+
+# That's it
+## Effortless 60 FPS
+
+--
+
+<video class="bk-video" autoplay muted loop>
+  <source src="https://media.giphy.com/media/TXJiSN8vCERuE/giphy.mp4" type="video/mp4" />
+</video>
+
+--
+
+# Does it scale?
+
+--
+
+# Yes
+## Up to a point
+
+-- chart-video
+
+<video autoplay muted loop>
+  <source src="videos/bubble-chart.mp4" type="video/mp4" />
+</video>
+
+-- code
+
+```js
+drawGraph() {
+  const { nodes } = this.props;
+  const context = this.$canvas.getContext('2d');
+
+  // Draw the nodes
+  nodes.forEach(this.drawNode);
+  // ...
+}
+
+containerRef(el) {
+  this.$canvas = el;
+}
+
+render() {
+  return (
+    <canvas ref={this.containerRef} />
+  );
+}
+```
+
+-- code
+
+```js
+handleZoom() {
+  this.transform = {
+    x: event.transform.x,
+    y: event.transform.y,
+    k: event.transform.k,
+  };
+
+  this.drawGraph();
+}
+```
+
+-- 
+
+# Performance considerations
+## Some best practices
+
+--
+
+# Use `PureComponent`
+## `render` should run as few times as possible
+
+--
+
+# Keep shallow equality in mind
+## It'll avoid wasted renders
+
+-- code
+
+```js
+data.map((d, i) => (
+  <Point
+    key={i}
+    d={d}
+    onMouseEnter={() => this.handleMouseEnterPoint(d)}
+    onMouseLeave={() => this.handleMouseLeavePoint(d)}
+  />
+))
+```
+
+-- code
+
+```js
+data.map((d, i) => (
+  <Point
+    key={i}
+    d={d}
+    onMouseEnter={this.handleMouseEnterPoint}
+    onMouseLeave={this.handleMouseLeavePoint}
+  />
+))
+```
+
+--
+
+# Keep `render` lean
+## Don't perform complex calculations on render
+
+--
+
+# Prefer small components
+## Leverage the react reconciliation algorithm
+
+--
+
+<iframe 
+  src="/" 
+  width="100%" 
+  height="100%" 
+  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: white;" 
+  frameborder="0"
+></iframe>

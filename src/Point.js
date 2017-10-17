@@ -45,8 +45,8 @@ class Point extends React.Component {
       <Transition
         in
         timeout={DURATION}
-        {...others}
         onEnter={this.handleEnter}
+        {...others}
       >
         <circle
           cx={d.x}

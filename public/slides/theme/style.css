@@ -208,6 +208,29 @@ http://zenorocha.mit-license.org
 
 /* }}} */
 
+.package-name {
+  position: absolute;
+  top: 5vh;
+  font-family: 'Overpass Mono', monospace;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.package-name::before {
+  display: block;
+  content: "Package:";
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vh;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  opacity: .7;
+}
+
+.progress-bar {
+  background-color: gold;
+}
+
 .bk-video .slide-content {
   align-items: center;
 }
@@ -239,6 +262,10 @@ http://zenorocha.mit-license.org
   left: 50%;
   transform: translateX(-50%);
   height: 8vh;
+}
+
+.slide.bk-white {
+  background-color: white;
 }
 
 .slide.chart-video {
