@@ -28,16 +28,14 @@ class LineChart extends Component {
     height: PropTypes.number.isRequired,
     margin: marginShape.isRequired,
 
-    // Feature flags
-    points: PropTypes.bool,
-    tooltip: PropTypes.bool,
-    axis: PropTypes.bool,
+    animate: PropTypes.bool,
 
     data: PropTypes.arrayOf(dataShape),
   }
 
   static defaultProps = {
     data: [],
+    animate: false,
   }
 
   state = {
@@ -55,8 +53,16 @@ class LineChart extends Component {
   }
 
   componentDidMount() {
-    // Start drawing the path after a delay
-    window.setTimeout(() => this.transitionPath(), 1500);
+    if (this.props.animate) {
+      // Start drawing the path after a delay
+      window.setTimeout(() => this.transitionPath(), 1500);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.animate && this.props.animate) {
+      this.restartTransition();
+    }
   }
 
   transitionPath() {
@@ -91,6 +97,8 @@ class LineChart extends Component {
   }
 
   restartTransition() {
+    if (!this.props.animate) return;
+
     this.setState({
       isPathVisisble: false,
       pathLength: 0,

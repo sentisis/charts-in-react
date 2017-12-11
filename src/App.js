@@ -19,7 +19,17 @@ const MARGIN = {
 };
 
 class App extends React.Component {
+  state = {
+    isAnimationRunning: true,
+  }
+
+  toggleAnimation = () => this.setState(state => ({
+    isAnimationRunning: !state.isAnimationRunning,
+  }))
+
   render() {
+    const { isAnimationRunning } = this.state;
+
     return (
       <div className="App">
         <LineChart
@@ -27,11 +37,12 @@ class App extends React.Component {
           height={HEIGHT}
           margin={MARGIN}
           data={data}
+          animate={isAnimationRunning}
         />
 
-        <a className="slides-link" href="/slides/charts-in-react-cleaver.html">
-          Go to slides
-        </a>
+        <button onClick={this.toggleAnimation}>
+          {isAnimationRunning ? 'Stop animation' : 'Start animation'}
+        </button>
       </div>
     );
   }

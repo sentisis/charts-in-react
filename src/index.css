@@ -6,6 +6,7 @@ body {
 
 .App {
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -19,4 +20,8 @@ body {
   position: fixed;
   bottom: 5vh;
   color: gray;
+}
+
+.App > button {
+  margin-top: 50px;
 }
