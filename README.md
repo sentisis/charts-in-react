@@ -7,6 +7,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
+### Live Demo
+
+A live demo can be viewed [here][2].
+
+
 ###  Slides
 
 The slides can be viewed [here][1].
@@ -24,5 +29,6 @@ $ yarn start
 The React app will be available on `http://localhost:3000`.
 
 
-[1]: https://github.com/sentisis/charts-in-react/master/charts-in-react.pdf
+[1]: https://github.com/sentisis/charts-in-react/blob/master/charts-in-react.pdf
+[2]: https://sentisis.github.io/charts-in-react/
 
