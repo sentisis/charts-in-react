@@ -1,4 +1,4 @@
-### Charts in React; The right way.
+# Charts in React; The right way.
 
 > This repositories contains the slides and the examples of the talk @albertorestifo
 > gave at Frontend Madrid and React Spain in 2017.
